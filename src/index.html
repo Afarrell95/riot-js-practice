@@ -1,34 +1,25 @@
 <!DOCTYPE html>
+
 <html>
   <head>
-    <title>My Riot App</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.0/milligram.css"
-    />
+    <title>Riot todo</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <main class="column column-60">
-          <h1>Hello that's my first Riot.js App</h1>
 
-          <div is="my-component" data-riot-component message="Hello There">
-            <h2>shhhhh</h2>
-          </div>
-        </main>
-        <aside is="sidebar" data-riot-component class="column">
-          <h2>wazzup</h2>
-        </aside>
-      </div>
-    </div>
+  <body>
+    <todo></todo>
+
+    <script src="todo.riot" type="riot"></script>
+    <script src="https://unpkg.com/riot@7/riot+compiler.min.js"></script>
+
+    <script>
+      riot.compile().then(() => {
+        riot.mount("todo", {
+          title: "Riot JS Todo App",
+          items: [],
+        });
+      });
+    </script>
   </body>
 </html>
