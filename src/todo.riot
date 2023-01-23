@@ -1,6 +1,12 @@
 <todo>
   <h3>{ props.title }</h3>
-
+<div class="main-contain">
+  <form onsubmit={ add }>
+    <input onkeyup={ edit } />
+    <button disabled={ !state.text }>
+      Add #{ state.items.length + 1 }
+    </button>
+  </form>
   <ul>
     <li each={ item in state.items } hidden={ item.hidden }>
       <label class={ item.done ? 'completed' : null }>
@@ -12,14 +18,7 @@
       </label>
     </li>
   </ul>
-
-  <form onsubmit={ add }>
-    <input onkeyup={ edit } />
-    <button disabled={ !state.text }>
-      Add #{ state.items.length + 1 }
-    </button>
-  </form>
-
+</div>
   <script>
     export default {
       onBeforeMount(props, state) {
